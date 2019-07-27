@@ -1,7 +1,10 @@
 # Spoke Digits Recognition
 
 Speech recognition - recognizing digits from Google Speech Commands dataset with embodied CNN architectures
-Companion of the article 
+Python-Keras scripts for training and testing models. 
+These are provided to facilitate replicating the results and experimenting other configurations and parameters.
+
+The script ran in a nvidia-docker environment, Keras 2.2.4 and Tensorflow 1.8.
 
 Folders:
 
