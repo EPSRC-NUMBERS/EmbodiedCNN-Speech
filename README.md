@@ -5,7 +5,7 @@ Companion of the article
 
 Folders:
 
-Dataset - includes scripts to create them from the Google Speech Commands dataset v0.02
+Dataset - includes iCub robot finger representations for digits and scripts to create them from the Google Speech Commands dataset v0.02
 
 Zipfian - scripts for the experiment with the Zipfian distribution (Scenario 1)
 
