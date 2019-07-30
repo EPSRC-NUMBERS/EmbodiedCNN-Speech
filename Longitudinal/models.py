@@ -6,7 +6,6 @@ from keras.layers import Input, Dense, Dropout, Flatten, BatchNormalization, Con
 from keras.regularizers import l1,l2
 from customs import TerminateOnBaseline
 
-l1_lambda = 0.0001
 drop_0 = 0.25
 drop_1 = 0.5
 hidden = 128
