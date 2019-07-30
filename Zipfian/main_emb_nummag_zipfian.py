@@ -9,7 +9,6 @@ from sklearn.metrics import accuracy_score
 from keras.callbacks import EarlyStopping, CSVLogger, ModelCheckpoint
 from keras import backend as K
 
-from dataset import DatasetGenerator
 from customs import CustomCallback, acc_likelihood, acc_threshold
 
 import sys, os
@@ -45,22 +44,22 @@ x_train = np.abs(x_train)/maxf
 x_test = np.abs(x_test)/maxf
 pre_train = np.abs(pre_train)/maxf
 
-termometer = np.tril(np.ones((NUM_CLASSES,NUM_OUTPUTS)))
+thermometer = np.tril(np.ones((NUM_CLASSES,NUM_OUTPUTS)))
 
-print(termometer)
+print(thermometer)
 
 i=0
 emb_train = np.ones((y_train.shape[0],NUM_OUTPUTS))
 for x in y_train[:]:
 	idx = np.argmax(x)
-	emb_train[i] = termometer[idx]
+	emb_train[i] = thermometer[idx]
 	i=i+1
 
 i=0
 emb_test = np.ones((y_test.shape[0],NUM_OUTPUTS))
 for x in y_test[:]:
 	idx = np.argmax(x)
-	emb_test[i]= termometer[idx]
+	emb_test[i]= thermometer[idx]
 	i=i+1
 
 i=0
@@ -86,7 +85,7 @@ nsplit = len(ssplit)
 #==============================================================================  
 # 
 
-reps = 25
+reps = 32
 
 pre_epochs = np.zeros((nsplit,reps))
 
