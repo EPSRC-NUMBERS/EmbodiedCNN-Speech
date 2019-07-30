@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score
 from keras.callbacks import EarlyStopping, CSVLogger,ModelCheckpoint
 from keras import backend as K
 from keras.utils import plot_model
-from dataset import DatasetGenerator
+
 from customs import CustomCallback, acc_likelihood, acc_threshold
 
 import sys, os
@@ -20,7 +20,7 @@ DIR = 'numbers' # unzipped train and test data
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
  
 # The GPU id to use, usually either "0" or other if you have more;
-os.environ["CUDA_VISIBLE_DEVICES"]="2"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' # removes the tensorflow initial information 
 
 BATCH = 32
@@ -29,20 +29,6 @@ EPOCHS = 25
 LABELS = 'one two three four five six seven eight nine'.split()
 NUM_CLASSES = 9
 NUM_OUTPUTS = 16
-
-#==============================================================================
-# Prepare data      
-#==============================================================================
-#dsGen = DatasetGenerator(label_set=LABELS) 
-# Load DataFrame with paths/labels for training and validation data 
-# and paths for testing data 
-#df = dsGen.load_data(DIR)
-
-#dsGen.apply_train_test_split(test_size=0.0, random_state=2018)
-#dsGen.apply_train_val_split(val_size=0.2, random_state=2018)
-
-#dsGen.build_dataset(mode='train')
-#dsGen.build_dataset(mode='val')
 
 x_train = np.load('train_batches.npy')
 y_train = np.load('train_targets.npy')
@@ -71,11 +57,11 @@ nsplit = len(ssplit)
 #==============================================================================  
 # 
 
-reps = 25
+reps = 32
 
 pre_epochs = np.zeros((nsplit,reps))
 folder = './LogsC/longitudinal/'
-for k in range(1,reps,4):
+for k in range(reps):
 
 	if not os.path.exists(folder+str(k)):
 		os.makedirs(folder+str(k))
