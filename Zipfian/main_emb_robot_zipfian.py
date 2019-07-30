@@ -9,7 +9,6 @@ from keras.callbacks import EarlyStopping, CSVLogger, ModelCheckpoint
 from keras import backend as K
 import time
 
-from dataset import DatasetGenerator
 from customs import CustomCallback, acc_likelihood, acc_threshold
 
 import sys, os
@@ -90,7 +89,7 @@ nsplit = len(ssplit)
 #==============================================================================  
 # 
 
-reps = 25
+reps = 32
 
 pre_epochs = np.zeros((nsplit,reps))
 folder = './LogsR/zipfian/'
