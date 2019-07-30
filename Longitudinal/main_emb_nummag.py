@@ -5,7 +5,6 @@ from sklearn.metrics import accuracy_score
 from keras.callbacks import EarlyStopping, CSVLogger, ModelCheckpoint
 from keras import backend as K
 
-from dataset import DatasetGenerator
 from customs import CustomCallback, acc_likelihood, acc_threshold
 
 import sys, os
@@ -24,20 +23,6 @@ EPOCHS = 25
 LABELS = 'one two three four five six seven eight nine'.split()
 NUM_CLASSES = 9
 NUM_OUTPUTS = 9
-
-#==============================================================================
-# Prepare data      
-#==============================================================================
-#dsGen = DatasetGenerator(label_set=LABELS) 
-# Load DataFrame with paths/labels for training and validation data 
-# and paths for testing data 
-#df = dsGen.load_data(DIR)
-
-#dsGen.apply_train_test_split(test_size=0.0, random_state=2018)
-#dsGen.apply_train_val_split(val_size=0.2, random_state=2018)
-
-#dsGen.build_dataset(mode='train')
-#dsGen.build_dataset(mode='val')
 
 x_train = np.load('train_batches.npy')
 y_train = np.load('train_targets.npy')
