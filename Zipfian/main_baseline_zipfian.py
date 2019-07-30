@@ -61,7 +61,7 @@ nsplit = len(ssplit)
 #==============================================================================  
 # 
 
-reps = 25
+reps = 32
 
 pre_epochs = np.zeros((nsplit,reps))
 folder = './LogsB/zipfian/'
