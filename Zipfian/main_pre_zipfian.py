@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 from keras.callbacks import EarlyStopping, CSVLogger,ModelCheckpoint
 from keras import backend as K
 from keras.utils import plot_model
-from dataset import DatasetGenerator
+
 from customs import CustomCallback, acc_likelihood, acc_threshold
 
 import sys, os
@@ -74,7 +74,7 @@ nsplit = len(ssplit)
 #==============================================================================  
 # 
 
-reps = 15
+reps = 32
 
 pre_epochs = np.zeros((nsplit,reps))
 folder = './LogsC/zipfian/'
