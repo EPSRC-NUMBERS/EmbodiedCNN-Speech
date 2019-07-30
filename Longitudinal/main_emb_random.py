@@ -1,4 +1,4 @@
-from models import emb_cnn_pre,emb_cnn_full,dnn_pre
+from models import emb_cnn_pre,emb_cnn_full
 import numpy as np
 from sklearn.metrics import accuracy_score
 from keras.callbacks import EarlyStopping, CSVLogger, ModelCheckpoint
@@ -24,20 +24,6 @@ EPOCHS = 25
 LABELS = 'one two three four five six seven eight nine'.split()
 NUM_CLASSES = 9
 NUM_OUTPUTS = 16
-
-#==============================================================================
-# Prepare data      
-#==============================================================================
-#dsGen = DatasetGenerator(label_set=LABELS) 
-# Load DataFrame with paths/labels for training and validation data 
-# and paths for testing data 
-#df = dsGen.load_data(DIR)
-
-#dsGen.apply_train_test_split(test_size=0.0, random_state=2018)
-#dsGen.apply_train_val_split(val_size=0.2, random_state=2018)
-
-#dsGen.build_dataset(mode='train')
-#dsGen.build_dataset(mode='val')
 
 x_train = np.load('train_batches.npy')
 y_train = np.load('train_targets.npy')
@@ -65,7 +51,7 @@ nsplit = len(ssplit)
 #==============================================================================  
 # 
 
-reps = 25
+reps = 32
 
 folder = './LogsD/longitudinal/'
 pre_epochs = np.zeros((nsplit,reps))
@@ -158,17 +144,3 @@ for k in range(reps):
 		K.clear_session()
 
 np.savetxt(folder+'pre_epochs.cvs',pre_epochs,delimiter=',')
-
-
-#==============================================================================
-# Predict
-#==============================================================================
-#y_pred_proba = model.predict_generator(dsGen.generator(BATCH, mode='test'), 
-#                                     int(np.ceil(len(dsGen.df_test)/BATCH)), 
-#                                     verbose=1)
-#y_pred = np.argmax(y_pred_proba, axis=1)
-
-#y_true = dsGen.df_test['label_id'].values
-
-#acc_score = accuracy_score(y_true, y_pred)
-#print(acc_score)
