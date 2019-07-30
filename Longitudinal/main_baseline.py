@@ -65,7 +65,7 @@ ssplit = [128, 512, 1024,  nsample/10, nsample/5, nsample/2, nsample]
 
 nsplit = len(ssplit) 
 
-reps = 25
+reps = 32
 
 folder = './LogsB/longitudinal/'
 for k in range(reps):
