@@ -4,7 +4,6 @@ from sklearn.metrics import accuracy_score
 from keras.callbacks import EarlyStopping, CSVLogger, ModelCheckpoint
 from keras import backend as K
 
-from dataset import DatasetGenerator
 from customs import CustomCallback, acc_likelihood, acc_threshold
 
 import sys, os
