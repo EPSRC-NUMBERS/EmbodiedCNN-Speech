@@ -1,4 +1,4 @@
-# Spoke Digits Recognition
+# An embodied model of Spoken Digits Recognition
 
 Speech recognition - recognizing digits from Google Speech Commands dataset with embodied CNN architectures
 Python-Keras scripts for training and testing models. 
